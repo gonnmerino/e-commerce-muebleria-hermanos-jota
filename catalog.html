@@ -4,30 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermanos Jota | Mueblería Artesanal</title>
+  <title>Hermanos Jota | Catálogo</title>
+  <link rel="stylesheet" href="styles/global.css">
   <link rel="stylesheet" href="styles/catalog.css">
   <script src="scripts/catalog.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="catalog.html">Catálogo</a>
-        <a href="contacto.html">Contacto</a>
-        <form id="search-form" action="GET">
-          <input 
-          type="text"
-          id="search-input"
-          placeholder="Busca ..."
-          >
-          <button type="submit">Buscar</button>
-        </form>
-    </nav>
+
+  <header class="main-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <h1>Hermanos Jota</h1>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalog.html" class="active">Catálogo</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <form id="search-form" method="GET" class="search-form">
+        <input type="text" id="search-input" placeholder="Buscar ..." aria-label="Buscar productos">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+    </div>
   </header>
-  <section id="products">
-  </section>
-  <footer id="footer"></footer>
+
+  <main class="container main-section">
+    <h2 class="section-title">Catálogo de Productos</h2>
+    <section id="products" class="products-grid">
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h3>Hermanos Jota</h3>
+        <p>Calidad y confort en cada rincón.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalog.html">Catálogo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Av. Corrientes 1234, CABA</p>
+        <p>contacto@hermanosjota.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
 </body>
 
 </html>

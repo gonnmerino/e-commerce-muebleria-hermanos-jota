@@ -1,4 +1,4 @@
-const catalog = [
+const data = [
   {
     id: 1,
     name: "Mesa de comedor Roble",
@@ -37,35 +37,63 @@ const catalog = [
   },
 ];
 const container = document.querySelector("#products");
-const content = catalog
-  .map(
-    (product) => `
-  <div class="product-card">
-    <h2>${product.name}</h2>
-    <h3>${product.description}</h3>
-    <p class="price" data-id="${product.id}">${product.price}</p>
-  </div>
-  `,
-  )
-  .join("");
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 
-container.addEventListener("click", (event) => {
-  const price = event.target.closest(".price");
-  if (price) {
-    const productId = price.dataset.id;
-    const productSelected = catalog.find((p) => p.id == productId);
-    alert(`Esto es una prueba ${productSelected.name}`);
+function fetchProducts() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(data);
+    }, 500);
+  });
+}
+
+function renderProducts(items) {
+  if (!items || items.length === 0) {
+    return (container.innerHTML = `No se encontraron productos que coincidan.`);
   }
+
+  container.innerHTML = items
+    .map(
+      (product) => `
+    <article class="product-card">
+      <h2>${product.name}</h2>
+      <p>${product.description}</p>
+      <p>${product.price}</p>
+      <a href="producto.html?id=${product.id}" class="btn btn-primary">Ver Detalle</a>
+    </article>
+  `,
+    )
+    .join("");
+}
+
+function filterProducts(query) {
+  const searchNormalize = query.toLowerCase().trim();
+  const filtered = data.filter((product) =>
+    product.name.toLowerCase().includes(searchNormalize),
+  );
+  renderProducts(filtered);
+}
+
+searchInput.addEventListener("input", (event) => {
+  filterProducts(event.target.value);
+});
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  filterProducts(searchInput.value);
 });
 
-const currentYear = new Date().getFullYear();
-
-const footer = document.getElementById("footer");
-footer.innerHTML = `
-&copy; ${currentYear} All Rights Reserved
-`;
-container.innerHTML = content;
-
-
-searchInput = document.getElementById('search-input')
+document.addEventListener("DOMContentLoaded", async () => {
+  container.innerHTML = `<p>Cargando productos...</p>`;
+  try {
+    const products = await fetchProducts();
+    renderProducts(products);
+  } catch (err) {
+    container.innerHTML = `<p>Error al cargar los productos.</p>`;
+  }
+  const footerYear = document.getElementById("year");
+  if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
+  }
+});
 
