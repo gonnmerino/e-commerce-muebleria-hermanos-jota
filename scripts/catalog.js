@@ -56,11 +56,16 @@ function renderProducts(items) {
   container.innerHTML = items
     .map(
       (product) => `
-    <article class="product-card">
-      <h2>${product.name}</h2>
-      <p>${product.description}</p>
-      <p>${product.price}</p>
-      <a href="producto.html?id=${product.id}" class="btn btn-primary">Ver Detalle</a>
+<article class="product-card">
+      <img src="" alt="${product.name}">
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <span class="price">$${product.price.toLocaleString("es-AR")}</span>
+        <div class="product-actions">
+          <a href="producto.html?id=${product.id}" class="btn btn-primary">Ver Detalle</a>
+        </div>
+      </div>
     </article>
   `,
     )
@@ -96,4 +101,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     footerYear.textContent = new Date().getFullYear();
   }
 });
-

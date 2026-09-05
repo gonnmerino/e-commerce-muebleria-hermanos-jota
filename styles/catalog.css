@@ -1,0 +1,14 @@
+#search-input {
+  text-align: left;
+  outline: none;
+  cursor:auto;
+}
+
+.email {
+  user-select: none;
+}
+
+::selection {
+  background-color: #6e442b;
+  color: #ffffff;
+}
