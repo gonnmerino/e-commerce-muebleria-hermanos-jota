@@ -3,11 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermanos Jota | Mueblería Artesanal</title>
   <link rel="stylesheet" href="styles/global.css">
-  <title></title>
-  <script src="scripts/script.js" defer></script>
 </head>
 <body>
-  
+
+  <header class="main-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <h1>Hermanos Jota</h1>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="cart-status">
+        <a href="#" id="cart-button" aria-label="Ver carrito">
+          <span id="cart-count" class="badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <div class="container hero-content">
+      <h2>Diseño y calidad en madera para tu hogar</h2>
+      <p>Muebles de diseño artesanal pensados para durar toda la vida y transformar tus ambientes.</p>
+      <a href="productos.html" class="btn btn-primary">Ver Catálogo</a>
+    </div>
+  </section>
+
+  <main class="container main-section">
+    <h2 class="section-title">Productos Destacados</h2>
+    <div id="featured-products-container" class="products-grid"></div>
+  </main>
+
+  <section class="about-us">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2>Tradición en Madera</h2>
+        <p>En Mueblería Hermanos Jota combinamos la carpintería tradicional con líneas de diseño modernas para crear piezas únicas.</p>
+        <a href="contacto.html" class="btn btn-secondary">Contactar Ventas</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h3>Hermanos Jota</h3>
+        <p>Calidad y confort en cada rincón.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Av. Corrientes 1234, CABA</p>
+        <p>contacto@hermanosjota.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/script.js" defer></script>
 </body>
 </html>
