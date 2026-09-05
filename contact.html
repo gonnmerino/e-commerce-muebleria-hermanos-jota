@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mueblería Hermanos Jota</title>
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Hermanos Jota</h1>
+            </div>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="contact.html" class="active" aria-current="page">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-status">
+                <a href="#" id="cart-btn" aria-label="Ver carrito de compras">
+                     <span class="badge" id="cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-section">
+        <section class="container">
+            <div class="hero-content">
+                <h2 class="section-title">Ponete en contacto con nosotros</h2>
+                <p>Completá el formulario a continuación y te responderemos a la brevedad.</p>
+            </div>
+
+            <form id="contact-form" class="product-card" style="max-width: 600px; margin: 2rem auto; padding: 2rem;">
+                <div style="margin-bottom: 1.25rem;">
+                    <label for="name" style="display: block; font-weight: 500; margin-bottom: 0.5rem;">Nombre completo</label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre y apellido" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--borde); border-radius: 4px; font-family: var(--fuente-texto);">
+                </div>
+
+                <div style="margin-bottom: 1.25rem;">
+                    <label for="email" style="display: block; font-weight: 500; margin-bottom: 0.5rem;">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--borde); border-radius: 4px; font-family: var(--fuente-texto);">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="message" style="display: block; font-weight: 500; margin-bottom: 0.5rem;">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta sobre muebles o presupuestos..." required style="width: 100%; padding: 0.75rem; border: 1px solid var(--borde); border-radius: 4px; font-family: var(--fuente-texto); resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" id="btn-submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+            </form>
+
+            <div id="form-feedback" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Hermanos Jota</h3>
+                <p>Muebles artesanales con diseño y durabilidad para tu hogar.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: contacto@hermanosjota.com</p>
+                <p>Tel: +54 362 4000000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/contact.js"></script>
+</body>
+</html>
