@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermanos Jota | Catálogo</title>
+  <title>Catálogo - Mueblería Hermanos Jota</title>
   <link rel="stylesheet" href="styles/global.css">
-  <link rel="stylesheet" href="styles/catalog.css">
-  <script src="scripts/catalog.js" defer></script>
 </head>
-
 <body>
 
   <header class="main-header">
@@ -18,24 +14,33 @@
         <h1>Hermanos Jota</h1>
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="catalog.html" class="active">Catálogo</a></li>
+          <li><a href="catalog.html" class="active" aria-current="page">Catálogo</a></li>
           <li><a href="contact.html">Contacto</a></li>
         </ul>
       </nav>
 
-      <form id="search-form" method="GET" class="search-form"">
-        <input type=" text" id="search-input" placeholder="Buscar..." aria-label="Buscar productos" class="btn">
-        <button type="submit" class="btn btn-primary">Buscar</button>
-      </form>
+      <div class="cart-status">
+        <a href="#" id="cart-btn" aria-label="Ver carrito de compras">
+          🛒 <span class="badge" id="cart-counter">0</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container main-section">
-    <h2 class="section-title">Catálogo de Productos</h2>
-    <section id="products" class="products-grid">
+  <main class="main-section container">
+    <div class="catalog-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+      <h2 class="section-title" style="margin-bottom: 0;">Catálogo de Productos</h2>
+      
+      <form id="search-form" class="search-form" style="display: flex; gap: 0.5rem; max-width: 350px; width: 100%;">
+        <input type="text" id="search-input" placeholder="Buscar por nombre..." aria-label="Buscar productos" style="flex: 1; padding: 0.6rem 0.8rem; border: 1px solid var(--borde); border-radius: 4px; font-family: var(--fuente-texto);">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+    </div>
+
+    <section id="products" class="products-grid" aria-live="polite">
     </section>
   </main>
 
@@ -51,14 +56,14 @@
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="catalog.html">Catálogo</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="contact.html">Contacto</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Contacto</h4>
-        <p>Av. Corrientes 1234, CABA</p>
-        <p class="email">contacto@hermanosjota.com</p>
+        <p>Email: contacto@hermanosjota.com</p>
+        <p>Tel: +54 362 4000000</p>
       </div>
     </div>
 
@@ -67,6 +72,6 @@
     </div>
   </footer>
 
+  <script src="scripts/catalog.js"></script>
 </body>
-
 </html>
