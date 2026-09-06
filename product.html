@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermanos Jota | Mueblería Artesanal</title>
+  <title>Detalle de Producto | Hermanos Jota</title>
   <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
       </a>
       <nav class="main-nav" aria-label="Navegación principal">
         <ul>
-          <li><a href="index.html" class="active" aria-current="page">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="catalog.html">Catálogo</a></li>
           <li><a href="contact.html">Contacto</a></li>
         </ul>
@@ -28,17 +28,15 @@
     </div>
   </header>
 
-  <section class="hero-banner">
-    <div class="container hero-content">
-      <h2>Diseño y calidad en madera para tu hogar</h2>
-      <p>Muebles de diseño artesanal pensados para durar toda la vida y transformar tus ambientes.</p>
-      <a href="catalog.html" class="btn btn-primary">Ver Catálogo</a>
-    </div>
-  </section>
-
   <main class="container main-section">
-    <h2 class="section-title">Productos Destacados</h2>
-    <div id="featured-products-container" class="products-grid" aria-live="polite"></div>
+    <nav class="breadcrumb" aria-label="Navegación secundaria">
+      <a href="index.html">Inicio</a> &gt;
+      <a href="catalog.html">Catálogo</a> &gt;
+      <span id="breadcrumb-product-name">Cargando...</span>
+    </nav>
+    <div id="product-detail-container" class="product-detail-layout">
+      <p>Cargando información del mueble...</p>
+    </div>
   </main>
 
   <footer class="main-footer">
@@ -68,6 +66,6 @@
 
   <script src="data/products.js" defer></script>
   <script src="scripts/utils.js" defer></script>
-  <script src="scripts/script.js" defer></script>
+  <script src="scripts/product.js" defer></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermanos Jota | Mueblería Artesanal</title>
+  <title>Mi Carrito | Hermanos Jota</title>
   <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
@@ -14,13 +14,13 @@
       </a>
       <nav class="main-nav" aria-label="Navegación principal">
         <ul>
-          <li><a href="index.html" class="active" aria-current="page">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="catalog.html">Catálogo</a></li>
           <li><a href="contact.html">Contacto</a></li>
         </ul>
       </nav>
       <div class="cart-status">
-        <a href="cart.html" id="cart-btn" aria-label="Ver carrito de compras">
+        <a href="cart.html" id="cart-btn" class="active" aria-label="Ver carrito de compras">
           <img src="assets/images/shopping-cart.png" alt="Carrito" class="cart-icon">
           <span id="cart-counter" class="badge">0</span>
         </a>
@@ -28,17 +28,9 @@
     </div>
   </header>
 
-  <section class="hero-banner">
-    <div class="container hero-content">
-      <h2>Diseño y calidad en madera para tu hogar</h2>
-      <p>Muebles de diseño artesanal pensados para durar toda la vida y transformar tus ambientes.</p>
-      <a href="catalog.html" class="btn btn-primary">Ver Catálogo</a>
-    </div>
-  </section>
-
   <main class="container main-section">
-    <h2 class="section-title">Productos Destacados</h2>
-    <div id="featured-products-container" class="products-grid" aria-live="polite"></div>
+    <h2 class="section-title">Tu Carrito de Compras</h2>
+    <div id="cart-content-layout" class="cart-layout"></div>
   </main>
 
   <footer class="main-footer">
@@ -66,8 +58,7 @@
     </div>
   </footer>
 
-  <script src="data/products.js" defer></script>
   <script src="scripts/utils.js" defer></script>
-  <script src="scripts/script.js" defer></script>
+  <script src="scripts/cart.js" defer></script>
 </body>
 </html>
