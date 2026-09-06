@@ -1,61 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const contactForm = document.getElementById('contact-form');
-  const feedbackContainer = document.getElementById('form-feedback');
+const updateCartCounter = () => {
+  const counter = document.getElementById("cart-counter");
+  if (!counter) return;
 
-  if (!contactForm) return;
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const total = cart.reduce((acc, item) => acc + item.quantity, 0);
+  counter.textContent = total;
+};
 
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+const validateEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
 
-    const submitBtn = document.getElementById('btn-submit');
-    const originalText = submitBtn.innerText;
+const handleFormSubmit = (e) => {
+  e.preventDefault();
 
-    submitBtn.disabled = true;
-    submitBtn.innerText = 'Enviando...';
+  const form = e.target;
+  const statusDiv = document.getElementById("form-status");
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
 
-    const formData = {
-      name: document.getElementById('name').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      message: document.getElementById('message').value.trim()
-    };
-
-    try {
-      await simulateFormSubmission(formData);
-
-      showFeedback('¡Gracias por tu mensaje! Te responderemos a la brevedad.', 'success');
-      contactForm.reset();
-    } catch (error) {
-      showFeedback('Ocurrió un error al enviar el mensaje. Intentá nuevamente.', 'error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerText = originalText;
-    }
-  });
-
-  function simulateFormSubmission(data) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (data.name && data.email && data.message) {
-          resolve({ status: 200, message: 'Message sent successfully' });
-        } else {
-          reject(new Error('Invalid form data'));
-        }
-      }, 1000);
-    });
+  if (!name || !email || !message) {
+    statusDiv.textContent = "Por favor, completá todos los campos.";
+    statusDiv.className = "form-status error";
+    return;
   }
 
-  function showFeedback(message, type) {
-    feedbackContainer.innerHTML = '';
-    
-    const toast = document.createElement('div');
-    toast.className = 'cart-feedback';
-    toast.style.backgroundColor = type === 'success' ? '#8c5a3c' : '#c0392b';
-    toast.innerText = message;
+  if (!validateEmail(email)) {
+    statusDiv.textContent = "Por favor, ingresá un correo electrónico válido.";
+    statusDiv.className = "form-status error";
+    return;
+  }
 
-    document.body.appendChild(toast);
+  statusDiv.textContent = "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.";
+  statusDiv.className = "form-status success";
+  form.reset();
 
-    setTimeout(() => {
-      toast.remove();
-    }, 4000);
+  setTimeout(() => {
+    statusDiv.className = "form-status";
+    statusDiv.textContent = "";
+  }, 4000);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCounter();
+
+  const form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", handleFormSubmit);
+  }
+
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 });

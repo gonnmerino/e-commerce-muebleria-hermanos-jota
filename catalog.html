@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo - Mueblería Hermanos Jota</title>
+  <title>Catálogo | Hermanos Jota</title>
   <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
@@ -23,25 +23,29 @@
       </nav>
 
       <div class="cart-status">
-        <a href="#" id="cart-btn" aria-label="Ver carrito de compras">
-          🛒 <span class="badge" id="cart-counter">0</span>
+        <a href="cart.html" id="cart-btn" aria-label="Ver carrito de compras">
+          🛒 <span id="cart-counter" class="badge">0</span>
         </a>
       </div>
     </div>
   </header>
 
-  <main class="main-section container">
-    <div class="catalog-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-      <h2 class="section-title" style="margin-bottom: 0;">Catálogo de Productos</h2>
+  <main class="container main-section">
+    <h2 class="section-title">Nuestros Muebles</h2>
+
+    <div class="catalog-tools">
+      <input type="text" id="search-input" class="search-input" placeholder="Buscar muebles por nombre...">
       
-      <form id="search-form" class="search-form" style="display: flex; gap: 0.5rem; max-width: 350px; width: 100%;">
-        <input type="text" id="search-input" placeholder="Buscar por nombre..." aria-label="Buscar productos" style="flex: 1; padding: 0.6rem 0.8rem; border: 1px solid var(--borde); border-radius: 4px; font-family: var(--fuente-texto);">
-        <button type="submit" class="btn btn-primary">Buscar</button>
-      </form>
+      <select id="category-filter" class="filter-select">
+        <option value="all">Todas las categorías</option>
+        <option value="Sillas">Sillas</option>
+        <option value="Mesas">Mesas</option>
+        <option value="Sillones">Sillones</option>
+        <option value="Muebles">Muebles de Guardado</option>
+      </select>
     </div>
 
-    <section id="products" class="products-grid" aria-live="polite">
-    </section>
+    <div id="catalog-container" class="products-grid" aria-live="polite"></div>
   </main>
 
   <footer class="main-footer">
@@ -62,16 +66,16 @@
 
       <div class="footer-col">
         <h4>Contacto</h4>
-        <p>Email: contacto@hermanosjota.com</p>
-        <p>Tel: +54 362 4000000</p>
+        <p>Av. Corrientes 1234, CABA</p>
+        <p>contacto@hermanosjota.com</p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+      <p>&copy; <span id="year">2026</span> Mueblería Hermanos Jota. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script src="scripts/catalog.js"></script>
+  <script src="scripts/catalog.js" defer></script>
 </body>
 </html>
