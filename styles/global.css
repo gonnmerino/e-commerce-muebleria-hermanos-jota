@@ -8,6 +8,7 @@
   --text-muted: #666666;
   --border-color: #e2d8cd;
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-title: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --max-width: 1200px;
 }
 
@@ -15,6 +16,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter-Variable.woff2");
+  font-display: swap;
+  font-style: normal;
+}
+
+#title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  letter-spacing: .07rem;
+  font-size: 1.6rem;
 }
 
 body {
@@ -77,6 +92,10 @@ body {
 }
 
 .cart-status a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
   text-decoration: none;
   color: var(--text-color);
   font-size: 1.2rem;
@@ -84,14 +103,20 @@ body {
 }
 
 .badge {
-  background-color: var(--primary-color);
+background-color: var(--primary-color);
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: bold;
-  padding: 0.2rem 0.5rem;
+  min-width: 18px;
+  height: 18px;
   border-radius: 50%;
-  position: relative;
-  top: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  padding: 2px;
 }
 
 .hero-banner {
@@ -214,11 +239,32 @@ body {
 
 .search-input,
 .filter-select {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
+appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
   background-color: var(--card-bg);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%238b5a2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1rem;
+}
+
+.filter-select option {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 0.5rem;
 }
 
 .search-input {
@@ -482,6 +528,27 @@ body {
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 0.9rem;
   color: #aaa;
+}
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+#cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+#email {
+  user-select: none;
+}
+
+::selection {
+  background-color: #6e442b;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

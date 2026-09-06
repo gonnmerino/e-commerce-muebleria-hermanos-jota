@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo | Hermanos Jota</title>
   <link rel="stylesheet" href="styles/global.css">
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
+
 <body>
 
   <header class="main-header">
     <div class="container header-content">
       <a href="index.html" class="logo">
-        <h1>Hermanos Jota</h1>
+        <h1 id="title">Hermanos Jota</h1>
       </a>
 
       <nav class="main-nav" aria-label="Navegación principal">
@@ -24,7 +27,8 @@
 
       <div class="cart-status">
         <a href="cart.html" id="cart-btn" aria-label="Ver carrito de compras">
-          🛒 <span id="cart-counter" class="badge">0</span>
+          <img src="assets/images/shopping-cart.png" alt="Carrito" class="cart-icon">
+          <span id="cart-counter" class="badge">0</span>
         </a>
       </div>
     </div>
@@ -35,7 +39,7 @@
 
     <div class="catalog-tools">
       <input type="text" id="search-input" class="search-input" placeholder="Buscar muebles por nombre...">
-      
+
       <select id="category-filter" class="filter-select">
         <option value="all">Todas las categorías</option>
         <option value="Sillas">Sillas</option>
@@ -67,7 +71,7 @@
       <div class="footer-col">
         <h4>Contacto</h4>
         <p>Av. Corrientes 1234, CABA</p>
-        <p>contacto@hermanosjota.com</p>
+        <p id="email">contacto@hermanosjota.com</p>
       </div>
     </div>
 
@@ -78,4 +82,5 @@
 
   <script src="scripts/catalog.js" defer></script>
 </body>
+
 </html>

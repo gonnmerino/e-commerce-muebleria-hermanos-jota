@@ -4,7 +4,7 @@ const allProducts = [
     name: "Silla Comedor Jota",
     price: 45000,
     category: "Sillas",
-    image: "https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1612372606404-0ab33e7187ee?q=80&w=378&auto=format&fit=crop&w=600&q=80",
     description: "Silla de comedor fabricada en madera maciza de paraíso teñida. Ergonómica, elegante y resistente para el uso diario.",
     specs: {
       material: "Madera Maciza de Paraíso",
@@ -168,7 +168,8 @@ const renderProductDetail = () => {
           <label for="product-quantity">Cantidad:</label>
           <input type="number" id="product-quantity" value="1" min="1" max="10">
         </div>
-        <button id="add-to-cart-btn" class="btn btn-primary">Añadir al Carrito 🛒</button>
+        <button id="add-to-cart-btn" class="btn btn-primary">Añadir al Carrito
+        </button>
       </div>
     </div>
   `;

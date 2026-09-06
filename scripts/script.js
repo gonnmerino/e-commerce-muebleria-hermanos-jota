@@ -5,7 +5,7 @@ const products = [
     price: 45000,
     category: "Sillas",
     featured: true,
-    image: "https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=600&q=80"
+    image: "https://images.unsplash.com/photo-1612372606404-0ab33e7187ee?q=80&w=378&auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 2,

@@ -10,7 +10,7 @@ const formatPrice = (amount) => {
   return new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   }).format(amount);
 };
 
@@ -33,7 +33,8 @@ const renderCart = () => {
   if (cart.length === 0) {
     container.innerHTML = `
       <div class="empty-cart-message">
-        <p>Tu carrito está vacío 🛒</p>
+        <p>Tu carrito está vacío.
+        </p>
         <br>
         <a href="catalog.html" class="btn btn-primary">Ir al Catálogo</a>
       </div>
@@ -41,7 +42,10 @@ const renderCart = () => {
     return;
   }
 
-  const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalAmount = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  );
 
   const itemsHTML = cart
     .map(
@@ -58,9 +62,11 @@ const renderCart = () => {
         <button class="btn-qty increase-btn" aria-label="Sumar cantidad">+</button>
       </div>
       <p class="cart-item-subtotal">${formatPrice(item.price * item.quantity)}</p>
-      <button class="remove-btn" aria-label="Eliminar producto">🗑️</button>
+      <button class="remove-btn" aria-label="Eliminar producto">
+          <img src="assets/images/trash.png" alt="Carrito" class="cart-icon remove-btn"> 
+      </button>
     </div>
-  `
+  `,
     )
     .join("");
 
@@ -79,7 +85,6 @@ const renderCart = () => {
     </div>
   `;
 
-  attachCartEvents();
 };
 
 const attachCartEvents = () => {
@@ -92,7 +97,9 @@ const attachCartEvents = () => {
         saveCart([]);
         renderCart();
       } else if (e.target.id === "checkout-btn") {
-        alert("¡Gracias por tu compra en Hermanos Jota! Pronto nos pondremos en contacto.");
+        alert(
+          "¡Gracias por tu compra en Hermanos Jota! Pronto nos pondremos en contacto.",
+        );
         saveCart([]);
         renderCart();
       }
@@ -103,10 +110,16 @@ const attachCartEvents = () => {
     let cart = getCart();
 
     if (e.target.classList.contains("increase-btn")) {
-      cart = cart.map((item) => (item.id === productId ? { ...item, quantity: item.quantity + 1 } : item));
+      cart = cart.map((item) =>
+        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item,
+      );
     } else if (e.target.classList.contains("decrease-btn")) {
       cart = cart
-        .map((item) => (item.id === productId ? { ...item, quantity: item.quantity - 1 } : item))
+        .map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        )
         .filter((item) => item.quantity > 0);
     } else if (e.target.classList.contains("remove-btn")) {
       cart = cart.filter((item) => item.id !== productId);
@@ -119,6 +132,7 @@ const attachCartEvents = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
+  attachCartEvents();
 
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
