@@ -67,7 +67,7 @@ git clone https://github.com/gonnmerino/e-commerce-muebleria-hermanos-jota/
 
 ## Deploy
 
-El sitio está publicado en:
+El sitio está publicado en: https://e-commerce-muebleria-hermanos-jota-peach.vercel.app/
 
 ## Decisiones técnicas
 
