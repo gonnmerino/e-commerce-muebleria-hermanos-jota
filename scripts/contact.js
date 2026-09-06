@@ -1,21 +1,12 @@
-const updateCartCounter = () => {
-  const counter = document.getElementById("cart-counter");
-  if (!counter) return;
-
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const total = cart.reduce((acc, item) => acc + item.quantity, 0);
-  counter.textContent = total;
-};
-
 const validateEmail = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
 const handleFormSubmit = (e) => {
   e.preventDefault();
-
   const form = e.target;
   const statusDiv = document.getElementById("form-status");
+
   const name = form.name.value.trim();
   const email = form.email.value.trim();
   const message = form.message.value.trim();
@@ -44,14 +35,10 @@ const handleFormSubmit = (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCounter();
+  updateFooterYear();
 
   const form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", handleFormSubmit);
-  }
-
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
   }
 });
