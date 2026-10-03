@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "nombre": "Silla Comedor Jota",
+      "precio": 18500,
+      "categoria": "Sillas",
+      "descripcion": "Silla de madera maciza con acabado natural."
+    },
+    {
+      "id": 2,
+      "nombre": "Mesa de Centro Escandinava",
+      "precio": 45000,
+      "categoria": "Mesas",
+      "descripcion": "Mesa ratona con patas de roble."
+    },
+    {
+      "id": 3,
+      "nombre": "Sillón 3 Cuerpos Premium",
+      "precio": 120000,
+      "categoria": "Sillones",
+      "descripcion": "Sillón tapizado en pana con almohadones de alta densidad."
+    }
+  ]
