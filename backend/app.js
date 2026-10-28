@@ -18,8 +18,11 @@ app.get('/api', (req, res) => {
     version: "1.0.0",
     description: "Endpoints disponibles para consultar el catálogo de productos.",
     endpoints: {
+      "POST /api/products": "Crear un nuevo producto",
       "GET /api/products": "Obtener el listado completo de productos",
-      "GET /api/products/:productId": "Obtener un producto específico por su ID"
+      "GET /api/products/:id": "Obtener un producto específico por su ID",
+      "PATCH /api/products/:id": "Actualizar un producto",
+      "DELETE /api/products/:id": "Eliminar un producto específico por su ID"
     }
   })
 });
