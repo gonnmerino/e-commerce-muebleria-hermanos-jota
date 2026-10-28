@@ -3,6 +3,7 @@ const cors = require('cors');
 const { STATUS_CODES } = require('http');
 const dotenv = require('dotenv');
 const logger = require('./middlewares/logger.middleware');
+const connectDB = require('./db.js')
 const productsRouter = require('./routes/products.routes');
 dotenv.config();
 const app = express();
@@ -37,7 +38,8 @@ app.use((err, req, res, next) => {
     message: statusCode >= 500 ? 'Ocurrió un error inesperado en el servidor.' : err.message
   });
 });
-
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+  });
+})
