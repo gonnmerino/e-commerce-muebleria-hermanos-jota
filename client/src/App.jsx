@@ -6,6 +6,7 @@ import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import Lenis from 'lenis';
 
 export default function App() {
   const [view, setView] = useState('catalog');
@@ -69,6 +70,16 @@ export default function App() {
   };
 
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+    lenis.on('scroll', () => {})
+    return () => {
+      lenis.destroy();
+    }
+  }, [])
 
   return (
     <div className="app">

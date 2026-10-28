@@ -1,23 +1,47 @@
 [
-    {
-      "id": 1,
-      "nombre": "Silla Comedor Jota",
-      "precio": 18500,
-      "categoria": "Sillas",
-      "descripcion": "Silla de madera maciza con acabado natural."
+  {
+    "name": "Silla Comedor Jota",
+    "price": 18500,
+    "category": "Sillas",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1612372606404-0ab33e7187ee?q=80&w=378&auto=format&fit=crop&w=600&q=80",
+    "description": "Silla de madera maciza con acabado natural.",
+    "specs": {
+      "material": "Madera maciza",
+      "dimensions": "",
+      "finish": "Natural",
+      "weight": ""
     },
-    {
-      "id": 2,
-      "nombre": "Mesa de Centro Escandinava",
-      "precio": 45000,
-      "categoria": "Mesas",
-      "descripcion": "Mesa ratona con patas de roble."
+    "stock": 10
+  },
+  {
+    "name": "Mesa de Centro Escandinava",
+    "price": 45000,
+    "category": "Mesas",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80",
+    "description": "Mesa ratona con patas de roble.",
+    "specs": {
+      "material": "Roble",
+      "dimensions": "",
+      "finish": "",
+      "weight": ""
     },
-    {
-      "id": 3,
-      "nombre": "Sillón 3 Cuerpos Premium",
-      "precio": 120000,
-      "categoria": "Sillones",
-      "descripcion": "Sillón tapizado en pana con almohadones de alta densidad."
-    }
-  ]
+    "stock": 5
+  },
+  {
+    "name": "Sillón 3 Cuerpos Premium",
+    "price": 120000,
+    "category": "Sillones",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80",
+    "description": "Sillón tapizado en pana con almohadones de alta densidad.",
+    "specs": {
+      "material": "Pana",
+      "dimensions": "",
+      "finish": "",
+      "weight": ""
+    },
+    "stock": 3
+  }
+]
