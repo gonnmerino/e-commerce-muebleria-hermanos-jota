@@ -1,4 +1,6 @@
-const products = require('../data/products.json');
+// const products = require('../data/products.json');
+
+const Product = require('../models/products');
 
 const getAll = (req, res) => {
     res.json(products);
