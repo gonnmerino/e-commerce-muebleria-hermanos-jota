@@ -26,10 +26,14 @@ Evolucionamos la plataforma hacia una solución Full Stack completa. El backend 
 
 ## Tecnologías
 
-- **Backend:** Node.js, Express.js, dotenv, CORS
+- **Backend:** Node.js, Express.js, Mongoose, dotenv, CORS
 - **Frontend:** React.js, JavaScript (ES6+), CSS3 (Variables, Flexbox, Grid)
-- **Persistencia:** Archivos JSON (Backend) y `localStorage` (Cliente)
+- **Persistencia:** MongoDB (Backend) y `localStorage` (Cliente)
 - **Control de Versiones:** Git y GitHub
+
+## Variables de entorno
+
+Copiar `backend/.env.example` a `backend/.env` y completar `MONGO_URI` con la cadena de conexión de MongoDB.
 
 ## Estructura del proyecto
 
@@ -39,8 +43,11 @@ muebleria-jota/
 │   ├── data/
 │   ├── controllers/
 │   ├── middlewares/
+│   ├── models/
 │   ├── routes/
 │   ├── app.js
+│   ├── db.js
+│   ├── seed.js
 │   └── package.json
 │
 ├── client/                            # Aplicación Frontend SPA (React)

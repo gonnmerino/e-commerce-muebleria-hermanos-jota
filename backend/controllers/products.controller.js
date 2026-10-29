@@ -32,6 +32,9 @@ const getById = async (req, res) => {
     }
     res.status(200).json(product);
   } catch (error) {
+    if (error.name === "CastError") {
+      return res.status(404).json({ message: "Producto no encontrado" });
+    }
     res
       .status(500)
       .json({ message: "Error al buscar el producto", error: error.message });
@@ -49,6 +52,9 @@ const update = async (req, res) => {
     }
     res.status(200).json(product);
   } catch (error) {
+    if (error.name === "CastError") {
+      return res.status(404).json({ message: "Producto no encontrado para actualizar" });
+    }
     res.status(400).json({
       message: "Error al actualizar el producto",
       error: error.message,
@@ -68,8 +74,11 @@ const deleteProduct = async (req, res) => {
       product 
     });
   } catch (error) {
-      res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
+    if (error.name === "CastError") {
+      return res.status(404).json({ message: "Producto no encontrado para eliminar" });
     }
+    res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
+  }
 }
 
 module.exports = {
