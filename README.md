@@ -36,6 +36,7 @@ Evolucionamos la plataforma hacia una solución Full Stack completa. El backend 
 
 - **Frontend:** [muebleria-hermanos-jota-shop.vercel.app](https://muebleria-hermanos-jota-shop.vercel.app) — desplegado en Vercel con reescrituras configuradas en `client/vercel.json` para que las rutas de React funcionen al refrescar.
 - **Backend:** API desplegada en [Render](https://render.com) — la variable `VITE_API_URL` del cliente apunta a la URL pública de este servicio.
+- **Legacy Project:** [muebleria-hermanos-jota-legacy](https://e-commerce-muebleria-hermanos-jota-peach.vercel.app/) — sitio web legacy de los sprint 1, 2, 3 y 4.
 
 ## Endpoints
 
