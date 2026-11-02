@@ -81,7 +81,7 @@ npm run dev
 ## Estructura del proyecto
 
 ```
-muebleria-jota/
+muebleria-jota/                        # Web: https://muebleria-hermanos-jota-shop.vercel.app
 ├── backend/                           # Servidor REST API (Node.js/Express)
 │   ├── controllers/                   # Lógica de los endpoints
 │   ├── data/                          # Datos de ejemplo para el seed
@@ -107,7 +107,8 @@ muebleria-jota/
 │   ├── index.html
 │   └── package.json
 │
-├── legacy/                            # Estructura cliente original HTML/JS (Sprints 1 y 2)
+├── legacy/                    # Estructura cliente original HTML/JS (Sprints 1 y 2)
+│   │                          # Web Legacy: https://e-commerce-muebleria-hermanos-jota-peach.vercel.app
 │   ├── assets/
 │   ├── data/
 │   ├── scripts/
