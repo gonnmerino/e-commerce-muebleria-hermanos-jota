@@ -1,56 +1,31 @@
 import { useState, useEffect } from 'react';
-import { fetchProducts } from './services/api';
+import { Routes, Route } from 'react-router-dom';
+import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
-import Lenis from 'lenis';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
+import ProductFormPage from './pages/ProductFormPage';
 
 export default function App() {
-  const [view, setView] = useState('catalog');
-  const [selectedProductId, setSelectedProductId] = useState(null);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
-
-    fetchProducts()
-      .then((data) => {
-        if (isMounted) setProducts(data);
-      })
-      .catch((err) => {
-        if (isMounted) setError(err.message);
-      })
-      .finally(() => {
-        if (isMounted) setLoading(false);
-      });
-
-    return () => {
-      isMounted = false;
-    };
+    const lenis = new Lenis({ autoRaf: true });
+    return () => lenis.destroy();
   }, []);
-
-  const handleNavigate = (target) => {
-    setView(target);
-    if (target !== 'detail') setSelectedProductId(null);
-  };
-
-  const handleSelectProduct = (id) => {
-    setSelectedProductId(id);
-    setView('detail');
-  };
 
   const handleAddToCart = (product) => {
     setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
+      const existing = prev.find((item) => item._id === product._id);
       if (existing) {
         return prev.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item._id === product._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
         );
       }
       return [...prev, { ...product, quantity: 1 }];
@@ -58,62 +33,55 @@ export default function App() {
   };
 
   const handleUpdateQuantity = (id, quantity) => {
-    if (quantity <= 0) {
-      setCart((prev) => prev.filter((item) => item.id !== id));
-      return;
-    }
-    setCart((prev) => prev.map((item) => (item.id === id ? { ...item, quantity } : item)));
+    setCart((prev) =>
+      quantity <= 0
+        ? prev.filter((item) => item._id !== id)
+        : prev.map((item) => (item._id === id ? { ...item, quantity } : item)),
+    );
   };
 
-  const handleRemove = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
+  const handleRemove = (id) => handleUpdateQuantity(id, 0);
 
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  useEffect(() => {
-    const lenis = new Lenis({
-      autoRaf: true,
-    });
-    lenis.on('scroll', () => {})
-    return () => {
-      lenis.destroy();
-    }
-  }, [])
-
   return (
     <div className="app">
-      <Navbar cartCount={cartCount} onNavigate={handleNavigate} currentView={view} />
+      <Navbar cartCount={cartCount} />
 
       <main className="main-content">
-        {view === 'catalog' && (
-          <ProductList
-            products={products}
-            loading={loading}
-            error={error}
-            onSelect={handleSelectProduct}
-            onAddToCart={handleAddToCart}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/productos"
+            element={<ProductList onAddToCart={handleAddToCart} />}
           />
-        )}
-        {view === 'detail' && (
-          <ProductDetail
-            productId={selectedProductId}
-            onAddToCart={handleAddToCart}
-            onBack={() => handleNavigate('catalog')}
+          <Route
+            path="/productos/:id"
+            element={<ProductDetail onAddToCart={handleAddToCart} />}
           />
-        )}
-        {view === 'cart' && (
-          <Cart
-            items={cart}
-            onUpdateQuantity={handleUpdateQuantity}
-            onRemove={handleRemove}
-            onNavigate={handleNavigate}
+          <Route
+            path="/carrito"
+            element={
+              <Cart
+                items={cart}
+                onUpdateQuantity={handleUpdateQuantity}
+                onRemove={handleRemove}
+              />
+            }
           />
-        )}
-        {view === 'contact' && <ContactForm />}
+          <Route path="/contacto" element={<ContactForm />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/crear-producto" element={<ProductFormPage />} />
+          <Route
+            path="/admin/editar-producto/:id"
+            element={<ProductFormPage />}
+          />
+          <Route
+            path="*"
+            element={<p className="status-message">Página no encontrada.</p>}
+          />
+        </Routes>
       </main>
-
-      <Footer />
     </div>
   );
 }
