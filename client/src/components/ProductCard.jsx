@@ -4,8 +4,8 @@ import { formatPrice } from '../utils/formatPrice';
 export default function ProductCard({ product, onAddToCart }) {
   return (
     <article className="product-card">
-      <div className="product-card-img" aria-label={product.name}>
-        <span>{product.category.charAt(0)}</span>
+      <div className="product-card-img">
+        <img src={product.image} alt={product.name} />
       </div>
 
       <div className="product-card-body">
