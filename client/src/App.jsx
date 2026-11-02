@@ -6,7 +6,6 @@ import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import ProductFormPage from './pages/ProductFormPage';
@@ -83,8 +82,6 @@ export default function App() {
           />
         </Routes>
       </main>
-
-      <Footer />
     </div>
   );
 }
