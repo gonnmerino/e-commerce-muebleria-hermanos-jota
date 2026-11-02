@@ -5,7 +5,7 @@ const router = express.Router();
 router.post('/', create)
 router.get('/', getAll)
 router.get('/:id', getById)
-router.patch('/:id', update)
+router.put('/:id', update)
 router.delete('/:id', deleteProduct)
 
 module.exports = router;

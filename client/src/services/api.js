@@ -30,7 +30,7 @@ export function createProduct(data) {
 }
 
 export function updateProduct(id, data) {
-  return sendJson(`/products/${id}`, 'PATCH', data);
+  return sendJson(`/products/${id}`, 'PUT', data);
 }
 
 export function deleteProduct(id) {

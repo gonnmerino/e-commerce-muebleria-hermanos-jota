@@ -8,12 +8,12 @@ await mongoose.connect(process.env.MONGO_URI);
 await Product.deleteMany({});
 
 const newProducts = await Product.insertMany(products);
-console.log(`🌱 ${newProducts.length} productos cargados en ${mongoose.connection.name}`);
+console.log(`${newProducts.length} productos cargados en ${mongoose.connection.name}`);
 
 await mongoose.disconnect();
 }
 
 seed().catch((error) => {
-console.error(':x: Falló el seed:', error.message);
+console.error('Falló el seed:', error.message);
 process.exit(1);
 });
