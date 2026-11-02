@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import useForm from '../hooks/useForm';
 import {
   fetchProductById,
   createProduct,
@@ -18,7 +19,7 @@ const INITIAL_STATE = {
 export default function ProductFormPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [form, setForm] = useState(INITIAL_STATE);
+  const { form, setForm, handleChange } = useForm(INITIAL_STATE);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,12 +30,7 @@ export default function ProductFormPage() {
         setForm({ name, price, category, image, description, stock }),
       )
       .catch((err) => setError(err.message));
-  }, [id]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
+  }, [id, setForm]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
