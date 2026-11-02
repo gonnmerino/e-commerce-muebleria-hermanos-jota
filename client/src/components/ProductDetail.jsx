@@ -38,8 +38,8 @@ export default function ProductDetail({ onAddToCart }) {
       </Link>
 
       <div className="product-detail-content">
-        <div className="product-detail-img" aria-label={product.name}>
-          <span>{product.category.charAt(0)}</span>
+        <div className="product-detail-img">
+          <img src={product.image} alt={product.name} />
         </div>
         <div className="product-detail-info">
           <span className="product-category">{product.category}</span>
